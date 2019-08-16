@@ -47,7 +47,7 @@ $callback = function(Psr\Http\Message\ServerRequestInterface $request) use ($ker
         return new React\Http\Response(
                 500,
                 ['Content-Type' => 'text/plain'],
-                $e->getMessage()
+                sprintf('%s<br/>%s', $e->getMessage(), $e->getTraceAsString())
         );
     }
 
