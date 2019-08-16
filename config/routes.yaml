@@ -1,3 +1,7 @@
 home:
   path: /
-  controller: App\Controller\IndexController::home
+  controller: App\Controller\IndexController::start
+
+transition:
+  path: /transition/{id}
+  controller: App\Controller\IndexController::transition

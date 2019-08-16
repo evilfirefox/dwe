@@ -1,0 +1,33 @@
+framework:
+    workflows:
+        payment:
+            type: 'state_machine'
+            audit_trail:
+                enabled: true
+            marking_store:
+                type: 'single_state'
+                arguments:
+                    - 'state'
+            initial_marking: 'new'
+            supports: 'App\Model\Payment'
+            places:
+                - 'new'
+                - 'initialized'
+                - 'authorized'
+                - 'notified'
+                - 'pay_request'
+                - 'pay_completed'
+                - 'completed'
+            transitions:
+                initialize:
+                    from: 'new'
+                    to: 'initialized'
+                authorize:
+                    from: 'initialized'
+                    to: 'authorized'
+                fee_notify:
+                    from: 'authorized'
+                    to: 'notified'
+                finalize:
+                    from: 'notified'
+                    to: 'completed'
