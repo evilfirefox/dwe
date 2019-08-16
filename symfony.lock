@@ -32,6 +32,9 @@
     "psr/log": {
         "version": "1.1.0"
     },
+    "ramsey/uuid": {
+        "version": "3.8.0"
+    },
     "react/cache": {
         "version": "v1.0.0"
     },
