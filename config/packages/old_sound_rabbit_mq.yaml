@@ -1,0 +1,17 @@
+old_sound_rabbit_mq:
+    connections:
+        default:
+          host: '%rabbitmq_host%'
+          user: '%rabbitmq_user%'
+          password: '%rabbitmq_password%'
+          vhost: '%rabbitmq_vhost%'
+    producers:
+        workflow:
+            connection:       default
+            exchange_options: { name: 'task', type: direct }
+    consumers:
+        runner:
+            connection:       default
+            exchange_options: { name: 'task', type: direct }
+            queue_options:    { name: 'task'}
+            callback:         App\Consumer\TaskConsumer

@@ -7,6 +7,7 @@
         "ext-iconv": "*",
         "ext-json": "*",
         "nyholm/psr7": "^1.1",
+        "php-amqplib/rabbitmq-bundle": "^1.14",
         "ramsey/uuid": "^3.8",
         "react/event-loop": "^1.1",
         "react/http": "^0.8.4",
