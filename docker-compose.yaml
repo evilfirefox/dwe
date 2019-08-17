@@ -9,7 +9,14 @@ services:
     volumes:
       - .:/var/www/app
 
-  sc_composer:
-    image: vaguesoftware/sidecar-composer:latest
+  #sc_composer:
+  #  image: vaguesoftware/sidecar-composer:latest
+  #  volumes:
+  #    - .:/var/www/app
+
+  rabbit:
+    image: rabbitmq:3-management
     volumes:
-      - .:/var/www/app
+      - ./var/rabbitmqdata:/var/lib/rabbitmq
+    ports:
+      - 15672:15672

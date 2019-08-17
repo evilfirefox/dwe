@@ -2,8 +2,6 @@
 
 namespace App\Model;
 
-use Ramsey\Uuid\Uuid;
-
 /**
  * Class Context
  * @package App\Model
