@@ -64,7 +64,11 @@ class IndexController
         if (empty($enabled)) {
             return new Response($payment->serialize());
         }
-        $workflow->apply($payment, reset($enabled)->getName());
+        $nextName = reset($enabled)->getName();
+
+        if ($workflow->can($payment, $nextName)) {
+            $workflow->apply($payment, $nextName);
+        }
 
         $this->subjectStorage->store($payment->getId(), $payment);
 
